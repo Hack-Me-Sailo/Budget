@@ -1,0 +1,209 @@
+body{
+    background-color: #0e3232;
+}
+a h2{
+    color: aqua;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    &:hover{
+        color: azure;
+    }
+}
+
+a{
+    text-decoration: none;
+    color: beige;
+    &:hover{
+        color: #01ffff;
+    }
+}
+
+p{
+    color: aliceblue;
+    font-size: 18px;
+}
+.amt{
+    color: chartreuse;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 10px;
+    padding: 5px;
+}
+
+center h1{
+    color: burlywood;
+}
+.new{
+    background-color:blueviolet;
+    color:white;
+    cursor: pointer;
+    width: 150px;
+    height: 30px;
+    border-radius:8px;
+    border:none;
+    outline:none;
+    text-transform:capitalize;
+    font-weight:600;
+    border-radius:7px;
+    position: relative;
+    &:hover{
+        background-color:green;
+    }
+}
+table{
+    border-collapse:collapse;
+    width: 80%;
+    height: auto;
+    margin-left:10%;
+}
+th{
+    padding: 8px;
+    color:#dfabf1;
+}
+
+td{
+    padding: 8px;
+    text-align:center;
+    font-weight:600;
+    text-transform:capitalize;
+    font-size:20px;
+    color: azure;
+}
+
+table,th,td{
+    border:3px solid rgba(255, 255, 0, 0.707);
+}
+td a button{
+    background-color:blueviolet;
+    color:white;
+    cursor: pointer;
+    width: 90px;
+    height: 30px;
+    border-radius:8px;
+    border:none;
+    outline:none;
+    text-transform:capitalize;
+    font-weight:600;
+    border-radius:7px;
+    position: relative;
+    &:hover{
+        background-color:green;
+    }
+}
+td a .remove:hover{
+    background-color:red;
+}
+
+.coont{
+    display: grid;
+    grid-template-columns:2fr 2fr; 
+}
+
+
+@property --angle{
+    syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+}
+.div::after,.div::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle),transparent 70%,red);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 3px;
+    border-radius: 7%;
+    animation: 4s spin linear infinite;
+}
+.remove::after,.remove::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle),transparent 70%,red);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 3px;
+    border-radius: 7%;
+    animation: 4s spin linear infinite;
+}
+
+.remove::before,.div::before{
+    filter: blur(1.5rem);
+    opacity: 0.5;
+}
+
+@keyframes spin {
+    from{
+        --angle:0deg;
+    }
+    to{
+        --angle:360deg;
+    }
+}
+
+
+.form{
+    /* border: 1px solid; */
+    padding: 8px;
+}
+
+.form form{
+    background-color: aqua;
+    width: 50%;
+    height: auto;
+    padding: 5px;
+    border-radius: 10px;
+}
+.form form div{
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+.form form div input{
+    width: 90%;
+    height: 23px;
+    margin-top: 5px;
+    padding: 3px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    font-size: 17px;
+}
+label{
+    color:black;
+}
+.h2{
+    color:black;
+    text-align: center;
+}
+details{
+    margin-left:50%;
+    margin-top:2%;
+    font-size:20px;
+    width: 100%;
+    color: #dfabf1;
+    cursor: pointer;
+}
+.form form button{
+    margin-top:30px;
+    width: 300px;
+    height:40px;
+    margin-left:6%;
+    font-size:20px;
+    padding: 6px;
+    border-radius:7px;
+    background-color:green;
+    color:white;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    &:hover{
+        background-color:black;
+    }
+}

@@ -1,0 +1,48 @@
+{% extends "main.html" %}
+{% load static %}
+
+{% block title %} Home Page {% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{% static "base/home.css" %}">
+{% endblock css %}
+
+{% block content %}
+<div class="container mt-5">
+    <!-- Welcome Message -->
+    <div class="alert alert-info text-center">
+        {% comment %} <h4>Welcome, {{ user.first_name }}!</h4> {% endcomment %}
+        <h4>Welcome, This web application is designed to help you manage your finances efficiently.!</h4>
+    </div>
+
+    <!-- Budget Items -->
+    <div class="row">
+        {% for budget in budgets %}
+        <div class="col-md-6 mb-4">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <!-- Placeholder Image -->
+                        <img src="{% static 'images/default-budget.jpg' %}" class="img-fluid rounded-start" alt="{{ budget.name }}">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="{% url "items" budget.name budget.id %}" class="text-decoration-none text-dark">
+                                    {{ budget.name|title }}
+                                </a>
+                            </h5>
+                            <p class="card-text">This budget is designed to help you manage your finances efficiently.</p>
+                            <p class="card-text"><small class="text-body-secondary">Last updated {{ budget.updated|timesince }} ago</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <h2 class="text-center text-muted">No Budget Available. Please Create One!</h2>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

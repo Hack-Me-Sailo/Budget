@@ -1,0 +1,45 @@
+h4{
+    color: #2200ff;
+    text-align: center;
+    font-size: 25px;
+}
+form{
+    background-color: #00ffff8a;
+    height: auto;
+    width: 30%;
+    padding: 2%;
+    margin-left: 25%;
+    border-radius: 10px;
+}
+form input{
+    width: 250px;
+    height: 23px;
+    font-size: 20px;
+    margin-left: 20px;
+    outline: none;
+    border: none;
+}
+form input:focus{
+    border: 2px solid;
+}
+form label{
+    color: #7b00ff;
+    font-weight: bolder;
+    font-size: 20px;
+}
+button{
+    width: 400px;
+    height:40px;
+    margin-left:6%;
+    font-size:20px;
+    padding: 6px;
+    border-radius:7px;
+    background-color:green;
+    color:white;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    &:hover{
+        background-color:black;
+    }
+}

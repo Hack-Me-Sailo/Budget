@@ -1,0 +1,46 @@
+{% extends "main.html" %}
+{% block title %} Edit Item {% endblock %}
+
+{% block content %}
+
+<style>
+    .form form {
+        background-color: #e0f7fa; /* Light aqua color */
+        width: 30%;
+        height: auto;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 40px auto; /* Centered horizontally */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    }
+
+    .form form button {
+        display: block;
+        width: 100%;
+        margin-top: 20px;
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="form">
+        <form action="" method="post">
+            {% csrf_token %}
+            <h2 class="h2 text-center mb-4">Edit Item</h2>
+            <div class="mb-3">
+                <label for="item_name" class="form-label">Item Name</label>
+                <input type="text" name="name" id="item_name" class="form-control" value="{{ item.item_name }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="quantity" class="form-label">Quantity</label>
+                <input type="number" name="quant" id="quantity" class="form-control" value="{{ item.quantity }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="price_per_item" class="form-label">Price Per Item</label>
+                <input type="number" name="peritem" id="price_per_item" class="form-control" value="{{ item.price_per_item }}" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

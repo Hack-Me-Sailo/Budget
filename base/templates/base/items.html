@@ -1,0 +1,85 @@
+{% extends "main.html" %}
+{% block title %} Items Page {% endblock %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static "base/items.css" %}">
+{% endblock css %}
+
+{% block content %}
+<style>
+    #bbt{
+        margin-left:0%;
+    }
+</style>
+<div class="container mt-5">
+    <!-- Page Title -->
+    <div class="text-center mb-4">
+        <h1><u>Sample Budget Using Python Django and SQLite3 Database</u></h1>
+    </div>
+
+    <!-- Items Table -->
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>Item Name</th>
+                    <th>Quantity</th>
+                    <th>Price Per Item (Ksh)</th>
+                    <th>Total Price (Ksh)</th>
+                    <th colspan="2" class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                    <tr>
+                        <td>{{ item.item_name }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>{{ item.price_per_item }}</td>
+                        <td>{{ item.total_price }}</td>
+                        <td class="text-center">
+                            <a href="{% url 'edit' item.id %}" class="btn btn-warning btn-sm">Update</a>
+                        </td>
+                        <td class="text-center">
+                            <a href="{% url 'delete' item.id %}" class="btn btn-danger btn-sm">Remove</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Add New Item Form -->
+    <div class="coont mt-5">
+        <details>
+            <summary><b>Add New Item</b></summary>
+            <div class="form mt-3">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <h2 class='h2 mb-4'>Add New Item</h2>
+                    <div class="mb-3">
+                        <label for="item_name" class="form-label">Item Name</label>
+                        <input type="text" name="name" id="item_name" class="form-control" placeholder="Item name.." required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="quantity" class="form-label">Quantity</label>
+                        <input type="number" name="quant" id="quantity" class="form-control" placeholder="Number of items.." required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="price_per_item" class="form-label">Price Per Item</label>
+                        <input type="number" name="peritem" id="price_per_item" class="form-control" placeholder="Price per item.." required>
+                    </div>
+                    <button type="submit" id='bbt' class="btn btn-success">Add</button>
+                </form>
+            </div>
+        </details>
+    </div>
+
+    <!-- Total Amount -->
+    <div class="total mt-5">
+        <center>
+            <p>This Budget Takes a total of <span class="amt fw-bold">{{ amt }}</span></p>
+        </center>
+    </div>
+</div>
+
+{% endblock %}
